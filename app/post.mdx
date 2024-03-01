@@ -1,0 +1,205 @@
+# **Webpack React Typescript MDX Configuration.**
+
+---
+
+Download or clon the repo.
+
+```bash
+pnpm i
+```
+
+```bash
+pnpm dev
+```
+
+Dev server at : http://localhost:5454
+
+You can edit this page at -> `app/post.mdx`
+
+---
+
+## **About**
+
+Only how to configure Webpack for React, Typescript and support MDX.
+See in `webpack.config.json`.
+
+---
+
+**Here is some example usage , you can more with mdx.js and `remark` , `rehype` plugins.**
+
+## **Image**
+
+```bash
+![webpack](./wepack.png)
+```
+
+![webpack](./wepack.png)
+
+---
+
+## **Table**
+
+```bash
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `name` | string | Name of the resource |
+| `path` | string | Path to the resource |
+
+```
+
+| Name   | Type   | Description          |
+| ------ | ------ | -------------------- |
+| `name` | string | Name of the resource |
+| `path` | string | Path to the resource |
+
+```bash
+
+| Left | Center | Right |
+| :--- | :----: | ----: |
+| Left-aligned text | Center-aligned text | Right-aligned text |
+
+```
+
+| Left              |       Center        |              Right |
+| :---------------- | :-----------------: | -----------------: |
+| Left-aligned text | Center-aligned text | Right-aligned text |
+
+---
+
+## **Highlight code blocks**
+
+```js
+module.exports = {
+  root: true,
+  extends: ["@modern-js"],
+};
+```
+
+**Show Line Numbers**
+
+```js {1,3-4} showLineNumbers
+function fancyAlert(arg) {
+  if (arg) {
+    $.facebox({ div: "#foo" });
+  }
+}
+```
+
+---
+
+## **Block quotes: Nested**
+
+```bash
+
+> *Dear Mr. Carraway.*
+>
+> *This has been one of the most terrible shocks of my life to me I hardly can believe it that it is true at all. Such a mad act as that man did should make us all think. I cannot come down now as I am tied up in some very important business and cannot get mixed up in this thing now. If there is anything I can do a little later let me know in a letter by Edgar. I hardly know where I am when I hear about a thing like this and am completely knocked down and out.*
+>
+>> *Yours truly*
+>>> **MEYER WOLFSHIEM**
+>
+> and then hasty addenda beneath:
+>> *Let me know about the funeral etc do not know his family at all.*
+
+
+```
+
+> _Dear Mr. Carraway._
+>
+> _This has been one of the most terrible shocks of my life to me I hardly can believe it that it is true at all. Such a mad act as that man did should make us all think. I cannot come down now as I am tied up in some very important business and cannot get mixed up in this thing now. If there is anything I can do a little later let me know in a letter by Edgar. I hardly know where I am when I hear about a thing like this and am completely knocked down and out._
+>
+> > _Yours truly_
+> >
+> > > **MEYER WOLFSHIEM**
+>
+> and then hasty addenda beneath:
+>
+> > _Let me know about the funeral etc do not know his family at all._
+
+---
+
+## **JSX**
+
+```js
+export const authors = [
+	{ name: 'Jane', email: 'hi@jane.com' },
+	{ name: 'John', twitter: '@john2002' },
+];
+export const published = new Date('2022-02-01');
+
+# Hello world!
+
+Written by: {new Intl.ListFormat('en').format(authors.map(d => d.name))}.
+
+Published on: {new Intl.DateTimeFormat('en', {dateStyle: 'long'}).format(published)}.
+```
+
+export const authors = [
+  { name: "Jane", email: "hi@jane.com" },
+  { name: "John", twitter: "@john2002" },
+];
+export const published = new Date("2022-02-01");
+
+# Hello world!
+
+Written by: {new Intl.ListFormat('en').format(authors.map(d => d.name))}.
+
+Published on: {new Intl.DateTimeFormat('en', {dateStyle: 'long'}).format(published)}.
+
+---
+
+## **Exported Variables in MDX**
+
+**1st example**
+
+```js
+
+export const title = 'My first MDX post'
+
+# {title}
+
+```
+
+export const title = "My first MDX post";
+
+# {title}
+
+**2nd example**
+
+```js
+
+export const frontmatter = {
+  title: 'My first MDX post',
+  date: '2023-02-02'
+}
+
+# {frontmatter.title}
+
+```
+
+export const frontmatter = {
+  title: "My first MDX post",
+  date: "2023-02-02",
+};
+
+# {frontmatter.title}
+
+**3rd example**
+
+```js
+export function Thing() {
+  return <>World</>
+}
+
+# Hello <Thing />
+```
+
+export function Thing() {
+  return <>World</>;
+}
+
+# Hello <Thing />
+
+---
+
+END

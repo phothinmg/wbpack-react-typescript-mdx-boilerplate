@@ -99,10 +99,10 @@ const webpackConfig = {
     new HtmlWebpackPlugin({
       title: "Home",
       filename: "index.html",
-      template: "./app/assets/templates/index.html",
+      template: "./app/index.html",
     }),
     new MiniCssExtractPlugin(),
-    new FaviconsWebpackPlugin("./app/assets/favicons/favicon.ico"),
+    new FaviconsWebpackPlugin("./app/favicon.ico"),
   ],
 };
 
