@@ -1,11 +1,12 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import Post from "./mdxs/post.mdx";
-import "./css/index.css";
+import "./assets/css/index.css";
+import Nav from "./assets/components/Nav";
 export default function App() {
   return (
     <div>
-      <h3>Hello World</h3>
+      <Nav />
       <Post />
     </div>
   );

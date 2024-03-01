@@ -1,3 +1,5 @@
+@import url("./style/theme.css");
 @import url("./style/style.css");
+@import url("./style/tab.css");
 @import url("./prism/holi-theme.css");
 @import url("./prism/code-line.css");
