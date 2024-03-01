@@ -1,17 +1,21 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
+import * as React from "react";
+import * as ReactDOM from "react-dom/client";
+
 import Post from "./mdxs/post.mdx";
 import "./assets/css/index.css";
+
 import Nav from "./assets/components/Nav";
 export default function App() {
   return (
     <div>
       <Nav />
-      <Post />
+      <Post toc />
     </div>
   );
 }
 
-const domNode = document.getElementById("root");
-const root = createRoot(domNode);
-root.render(<App />);
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+);
