@@ -2,6 +2,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import FaviconsWebpackPlugin from "favicons-webpack-plugin";
+import HtmlWebpackTagsPlugin from "html-webpack-tags-plugin";
 import remarkGfm from "remark-gfm";
 import remarkMdxImages from "remark-mdx-images";
 import rehypePrism from "rehype-prism-plus";
@@ -97,6 +99,18 @@ const webpackConfig = {
       template: "./app/assets/templates/index.html",
     }),
     new MiniCssExtractPlugin(),
+    new FaviconsWebpackPlugin("./app/assets/favicons/favicon.ico"),
+    new HtmlWebpackTagsPlugin({
+      links: [
+        './app/assets/favicons/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32"',
+        './app/assets/favicons/apple-touch-icon.png" rel="icon" type="image/png" sizes="180x180"',
+        './app/assets/favicons/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16"',
+        './app/assets/favicons/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32"',
+        './app/assets/favicons/android-chrome-192x192.png" rel="icon" type="image/png" sizes="192x192"',
+        './app/assets/favicons/android-chrome-512x512.png" rel="icon" type="image/png" sizes="512x512"',
+      ],
+      tags: {},
+    }),
   ],
 };
 
